@@ -1,0 +1,16 @@
+{
+  "genesis_time": "2018-01-21T00:00:00Z",
+  "chain_id": "squirrelcoin-0",
+  "app_hash": "",
+  "validators": [
+    {
+      "pub_key": {
+        "data": "CC450D894F059633C2BE36D28020D0B1181F660D56659B74E6CAB5412D132BB4",
+        "type": "ed25519"
+      },
+      "power": 100,
+      "name": "localhost"
+    }
+  ]
+}
+
