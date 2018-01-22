@@ -7,3 +7,5 @@ npm install lotion
 npm install coins
 npm install mkdirp
 npm install child_process
+
+#sudo apt install node-gyp

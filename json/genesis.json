@@ -5,11 +5,11 @@
   "validators": [
     {
       "pub_key": {
-        "data": "CC450D894F059633C2BE36D28020D0B1181F660D56659B74E6CAB5412D132BB4",
+        "data": "254FD34B54E4E72AACBADB8074E5BF836B3DE76CB128DEDEB2F272A71FB43E14",
         "type": "ed25519"
       },
-      "power": 100,
-      "name": "localhost"
+      "power": 1000,
+      "name": "bear-blockchain-1"
     }
   ]
 }
