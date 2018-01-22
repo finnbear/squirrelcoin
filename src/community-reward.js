@@ -20,7 +20,7 @@ module.exports = function() {
 			let expectedTreasuryAmount = Math.floor(rewardAmount * config.treasuryPercent / 100);
 
 			if (treasuryPayout.amount !== expectedTreasuryAmount) {
-				throw Error("Oracle must pay " + (config.treasuryPercent * 100) + "% of reward to treasury");
+				throw Error("Oracle must pay " + (config.treasuryPercent * 100) + "% of reward to treasury (" + expectedTreasuryAmount + " isntead of " + treasuryPayout.amount + ")");
 			}
 
 			if (treasuryPayout.address != "treasury") {
@@ -31,7 +31,7 @@ module.exports = function() {
 			let expectedFounderAmount = Math.floor(rewardAmount * config.founderPercent / 100);
 
 			if (founderPayout.amount !== expectedFounderAmount) {
-				throw Error("Oracle must pay " + (config.founderPercent * 100) + "% of reward to founder");
+				throw Error("Oracle must pay " + (config.founderPercent * 100) + "% of reward to founder (" + expectedFounderAmount + " instead of " + founderPayout.amount + ")");
 			}
 
 			if (founderPayout.address != config.founderAddress) {
