@@ -1,2 +1,2 @@
 # squirrelcoin
-A concurrency for Squirrels
+A cryptocurrency for Squirrels
