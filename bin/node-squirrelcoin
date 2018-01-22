@@ -1,3 +1,5 @@
 #!/bin/sh
 cd "$(dirname "$0")"
-node ../src/node.js
+mkdir ../logs
+nohup node ../src/node.js & > ../logs/node-log.txt
+nohup node ../src/signer.js & > ../logs/signer-log.txt
