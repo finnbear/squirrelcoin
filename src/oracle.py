@@ -8,7 +8,7 @@ import httplib2
 #import argparse
 
 def sendTx(address, amount, grantId):
-	config = {"oneCoin": 1e8, "treasuryPercent": 0.1, "founderPercent": 0.1}
+	config = {"oneCoin": 1e8, "treasuryPercent": 0.1, "founderPercent": 0.05}
 
 	tx = json.dumps({
 		"from": [
