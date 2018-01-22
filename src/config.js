@@ -1,5 +1,5 @@
 module.exports = {
-	lotionPort: 3000,
+	lotionPort: 4000,
 	p2pPort: 46666,
 	tendermintPort: 46667,
 	oneCoin: 1e8,

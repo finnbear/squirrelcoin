@@ -7,6 +7,8 @@ let fs = require("fs");
 let { join } = require("path");
 let { post } = require("axios");
 
+let config = require("./config.js");
+
 const HOME = process.env.HOME || process.env.HOMEPATH || process.env.USERPROFILE;
 
 let walletPath = join(HOME, ".squirrelcoin/wallet.json");
@@ -17,13 +19,13 @@ privKey = Buffer.from(privKeyHex, "hex");
 let app = express();
 app.use(bodyParser.json());
 app.post("/", signTx);
-app.listen(3001);
+app.listen(4001);
 
 function signTx (req, res) {
 	let tx = req.body;
 	let sigHash = getSigHash(tx);
 	tx.from[0].signature = sign(sigHash, privKey).signature;
 	console.log(tx);
-	post("http://localhost:3000/txs", tx).then((res) => console.log(res.data.result));
+	post("http://localhost:" + config.lotionPort + "/txs", tx).then((res) => console.log(res.data.result));
 	res.end();
 }

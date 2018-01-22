@@ -36,7 +36,7 @@ def sendTx(address, amount, grantId):
 	})
 
 	http = httplib2.Http()
-	url = "http://localhost:3001/"
+	url = "http://localhost:4001/"
 	headers = {"content-type":"application/json"}
 	resp, content = http.request(url, method="POST", body=tx, headers=headers)
 
