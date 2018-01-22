@@ -1,5 +1,5 @@
 #!/bin/sh
 cd "$(dirname "$0")"
 mkdir ../logs
-nohup node ../src/node.js & > ../logs/node-log.txt
-nohup node ../src/signer.js & > ../logs/signer-log.txt
+nohup node ../src/node.js > ../logs/node.out &
+nohup node ../src/signer.js > ../logs/signer.out &
