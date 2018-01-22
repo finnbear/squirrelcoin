@@ -14,22 +14,22 @@ def sendTx(address, amount, grantId):
 		"from": [
 			{
 				"type": "communityReward",
-				"amount": amount * (1 + config["treasuryPercent"] + config["founderPercent"]) * config["oneCoin"],
+				"amount": round(amount * (1 + config["treasuryPercent"] + config["founderPercent"]) * config["oneCoin"]),
 				"grantId": grantId
 			}
 		],
 		"to": [
 			{
 				"address": address,
-				"amount": amount * config["oneCoin"]
+				"amount": round(amount * config["oneCoin"])
 			},
 			{
 				"address": "treasury",
-				"amount": amount * config["treasuryPercent"] * config["oneCoin"],
+				"amount": round(amount * config["treasuryPercent"] * config["oneCoin"])
 			},
 			{
 				"address": founderAddress,
-				"amount": amount * config["founderPercent"] * config["oneCoin"]
+				"amount": round(amount * config["founderPercent"] * config["oneCoin"])
 			}
 		]
 	})
