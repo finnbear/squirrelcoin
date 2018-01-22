@@ -56,6 +56,7 @@ async function main() {
 		case 1:
 			if (argv[0] === "key") {
 				return methods.pubKey;
+				process.exit();
 			} else if (argv[0] === "balance") {
 				let balance
 
