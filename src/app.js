@@ -11,11 +11,9 @@ module.exports = function(opts = {}) {
 		p2pPort: config.p2pPort,
 		tendermintPort: config.tendermintPort,
 		genesis: require.resolve("../json/genesis.json"),
-		peers: config.peers.map((addr) => ("${addr}:" + config.p2pPort)),
+		peers: config.peers.map((addr) => (addr + ":" + config.p2pPort)),
 		...opts
 	});
-
-	console.log(app.listen.toString());
 
 	app.use(coins({
 		handlers: {

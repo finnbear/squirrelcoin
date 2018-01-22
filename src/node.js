@@ -37,7 +37,7 @@ function startNode() {
 	App({
 		keys: nodeWalletPath,
 		lotionPort: config.lotionPort,
-		logTendermint: process.env.LOG_TM
+		logTendermint: true
 	}).then(({tendermintPort}) => {
 		console.log("Node successfully started")
 		console.log("Lotion API listening on https://localhost:" + config.lotionPort);
