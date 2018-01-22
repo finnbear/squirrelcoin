@@ -45,7 +45,7 @@ module.exports = function(privKey, client) {
 					},
 					{
 						amount,
-						address
+						recipientAddress
 					}
 				]
 			};
