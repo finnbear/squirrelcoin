@@ -2,6 +2,7 @@ founderAddress = "3jsjf41SwsDu7oq3Mg7mhe3GKXRUKviNQ"
 
 import os
 import sys
+import math
 import json
 import httplib2
 #import base58
@@ -14,22 +15,22 @@ def sendTx(address, amount, grantId):
 		"from": [
 			{
 				"type": "communityReward",
-				"amount": round(amount * (1 + config["treasuryPercent"] + config["founderPercent"]) * config["oneCoin"]),
+				"amount": math.floor(amount * (1 + config["treasuryPercent"] + config["founderPercent"]) * config["oneCoin"]),
 				"grantId": grantId
 			}
 		],
 		"to": [
 			{
 				"address": address,
-				"amount": round(amount * config["oneCoin"])
+				"amount": math.floor(amount * config["oneCoin"])
 			},
 			{
 				"address": "treasury",
-				"amount": round(amount * config["treasuryPercent"] * config["oneCoin"])
+				"amount": math.floor(amount * config["treasuryPercent"] * config["oneCoin"])
 			},
 			{
 				"address": founderAddress,
-				"amount": round(amount * config["founderPercent"] * config["oneCoin"])
+				"amount": math.floor(amount * config["founderPercent"] * config["oneCoin"])
 			}
 		]
 	})

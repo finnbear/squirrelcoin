@@ -27,7 +27,7 @@ module.exports = function() {
 				throw Error("Treasury payout wrong address");
 			}
 
-			let founderPayout = tx.to[0];
+			let founderPayout = tx.to[2];
 			let expectedFounderAmount = Math.floor(rewardAmount * config.founderPercent);
 
 			if (founderPayout.amount !== expectedFounderAmount) {
