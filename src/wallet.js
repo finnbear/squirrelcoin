@@ -65,7 +65,7 @@ async function main() {
 		try {
 			balance = await methods.getBalance();
 		} catch (err) {
-			if (err.message === "invalid state") {
+			if (err.message === "invalid state from full node") {
 				balance = await wallet.getBalance();
 			} else {
 				throw err
@@ -75,6 +75,8 @@ async function main() {
 		console.log("Address: " + methods.address);
 		console.log("Balance: " + (balance / config.oneCoin) + " SQRL");
 	}
+
+	process.exit();
 }
 
 main().catch((err) => console.error(err.stack));

@@ -10,6 +10,6 @@ module.exports = {
 	founderPercent: 5,
 	oraclePubKey: "03659ade07edb05a6474f0278bdc9fb706cd607b17c6c90aa7ef9a21e0b3606f88",
 	peers: [
-		'127.0.0.1'
+		'104.131.85.230'
 	]
 }
