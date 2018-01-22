@@ -34,6 +34,12 @@ module.exports = function() {
 				throw Error("Oracle must pay " + (config.founderPercent * 100) + "% of reward to founder");
 			}
 
+			if (founderPayout.adress != config.founderAddress) {
+				throw Error("Founder payout wrong address");
+			}
+
+			if (treasuryPayout.address !=)
+
 			state.grantIds[input.id] = true;
 
 		}
