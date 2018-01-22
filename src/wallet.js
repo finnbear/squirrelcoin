@@ -17,7 +17,7 @@ let walletPath = join(HOME, ".squirrelcoin/wallet.json");
 let argv = process.argv.slice(2)
 
 if (argv.length === 0) {
-	console.log("Squirrelcoin help:\n\nsquirrelcoin balance\n  Retrieves your wallet address and balance\n\nsquirrelcoin send <address> <ammount>\n  Sends squirrelcoins from your wallet to the given address")
+	console.log("Squirrelcoin help:\n\nsquirrelcoin key\n  Retrieves your public key\n\nsquirrelcoin balance\n  Retrieves your wallet address and balance\n\nsquirrelcoin send <address> <ammount>\n  Sends squirrelcoins from your wallet to the given address")
 	process.exit(0);
 }
 
@@ -55,7 +55,7 @@ async function main() {
 	switch (argv.length) {
 		case 1:
 			if (argv[0] === "key") {
-				console.log("Public key: " + methods.pubKey);
+				console.log("Public key: " + methods.pubKey.toString("hex"));
 				process.exit();
 			} else if (argv[0] === "balance") {
 				let balance
