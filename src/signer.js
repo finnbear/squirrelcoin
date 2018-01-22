@@ -9,8 +9,10 @@ let { post } = require("axios");
 
 const HOME = process.env.HOME || process.env.HOMEPATH || process.env.USERPROFILE;
 
-let privkeyHex = fs.readFileSync(join(HOME, ".squirrelcoin/signer_wallet.json"));
-let privkey = Buffer.from(privkeyHex.toString(), "hex");
+let walletPath = join(HOME, ".squirrelcoin/wallet.json");
+let walletJson = fs.readFileSync(walletPath, "utf8");
+let privKeyHex = JSON.parse(walletJson)[0].privKey;
+privKey = Buffer.from(privKeyHex, "hex");
 
 let app = express();
 app.use(bodyParser.json());
@@ -20,7 +22,7 @@ app.listen(3001);
 function signTx (req, res) {
 	let tx = req.body;
 	let sigHash = getSigHash(tx);
-	tx.from[0].signature = sign(sigHash, privkey).signature;
+	tx.from[0].signature = sign(sigHash, privKey).signature;
 	console.log(tx);
 	post("http://localhost:3000/txs", tx).then((res) => console.log(res.data.result));
 	res.end();
