@@ -52,31 +52,40 @@ async function main() {
 
 	clearTimeout(timeout);
 
-	if (argv.length === 3 && argv[0] === "send") {
-		let recipientAddr = argv[1];
-		let amount = Number(argv[2]) * config.oneCoin;
+	switch (argv.length) {
+		case 1:
+			if (argv[0] === "key") {
+				return methods.pubKey;
+			} else if (argv[0] === "balance") {
+				let balance
 
-		let res = await methods.send(recipientAddr, amount);
-		console.log("Done sending: " + res);
-		process.exit();
-	} else if (argv.length === 1 && argv[0] === "balance") {
-		let balance
+				try {
+					balance = await methods.getBalance();
+				} catch (err) {
+					if (err.message === "invalid state from full node") {
+						balance = await wallet.getBalance();
+					} else {
+						throw err
+					}
+				}
 
-		try {
-			balance = await methods.getBalance();
-		} catch (err) {
-			if (err.message === "invalid state from full node") {
-				balance = await wallet.getBalance();
-			} else {
-				throw err
+				console.log("Address: " + methods.address);
+				console.log("Balance: " + (balance / config.oneCoin) + " SQRL");
+
+				process.exit();
 			}
-		}
+			break;
+		case 3:
+			if (argv[0] === "send") {
+				let recipientAddr = argv[1];
+				let amount = Number(argv[2]) * config.oneCoin;
 
-		console.log("Address: " + methods.address);
-		console.log("Balance: " + (balance / config.oneCoin) + " SQRL");
+				let res = await methods.send(recipientAddr, amount);
+				console.log("Done sending: " + res);
+				process.exit();
+			}
+			break;
 	}
-
-	process.exit();
 }
 
 main().catch((err) => console.error(err.stack));
