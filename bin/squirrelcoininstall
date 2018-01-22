@@ -1,0 +1,9 @@
+#!/bin/sh
+cd "$(dirname "$0")"
+cd ..
+
+npm install secp256k1
+npm install lotion
+npm install coins
+npm install mkdirp
+npm install child_process
