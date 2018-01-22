@@ -9,7 +9,7 @@ module.exports = {
 	treasuryPercent: 0.1,
 	founderPercent: 0.05,
 	founderAddress: "3jsjf41SwsDu7oq3Mg7mhe3GKXRUKviNQ",
-	oraclePubKey: "03659ade07edb05a6474f0278bdc9fb706cd607b17c6c90aa7ef9a21e0b3606f88",
+	oraclePubKey: "03b4e505a83641e126da095cf106de8f571bda541d8997b2d48aa8f2bca77f6e5a",
 	peers: [
 		'104.131.85.230'
 	]
